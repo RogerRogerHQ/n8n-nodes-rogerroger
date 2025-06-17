@@ -77,4 +77,4 @@ Tested against n8n version 1.95.3.
 - 1.0.2:
 	- Updated README
 	- Moved repository to public Github
-	- Text changes to improve consistancy between RogerRoger UI and N8N Node
+	- Text changes to improve consistancy between RogerRoger and N8N

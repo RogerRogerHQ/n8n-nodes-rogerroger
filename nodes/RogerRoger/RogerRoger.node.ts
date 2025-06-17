@@ -346,14 +346,14 @@ export class RogerRoger implements INodeType {
 				description: 'Tags associated with this person',
 			},
 			{
-				displayName: 'Segments',
+				displayName: 'Lists',
 				name: 'segments',
 				type: 'multiOptions' as const,
 				typeOptions: {
 					loadOptionsMethod: 'getSegments',
 				},
 				default: [],
-				description: 'Segments associated with this person',
+				description: 'Lists associated with this person',
 			},
 			{
 				displayName: 'Email Addresses',
@@ -440,7 +440,7 @@ export class RogerRoger implements INodeType {
 
 		return [
 			{
-				displayName: 'Name',
+				displayName: 'First Name',
 				name: 'name',
 				type: 'string' as const,
 				displayOptions: {
@@ -454,7 +454,7 @@ export class RogerRoger implements INodeType {
 				required: true,
 			},
 			{
-				displayName: 'Surname',
+				displayName: 'Last Name',
 				name: 'surname',
 				type: 'string' as const,
 				displayOptions: {
@@ -464,7 +464,7 @@ export class RogerRoger implements INodeType {
 					},
 				},
 				default: '',
-				placeholder: 'Enter surname',
+				placeholder: 'Enter last name',
 				required: true,
 			},
 			{
@@ -574,14 +574,14 @@ export class RogerRoger implements INodeType {
 				description: 'Tags associated with this organization',
 			},
 			{
-				displayName: 'Segments',
+				displayName: 'Lists',
 				name: 'segments',
 				type: 'multiOptions' as const,
 				typeOptions: {
 					loadOptionsMethod: 'getSegments',
 				},
 				default: [],
-				description: 'Segments associated with this organization',
+				description: 'Lists associated with this organization',
 			},
 			{
 				displayName: 'Email Addresses',
