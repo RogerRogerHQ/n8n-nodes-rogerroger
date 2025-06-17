@@ -203,6 +203,8 @@ function buildTaskRequestBody(
 	description?: string,
 	tags?: string[],
 	people?: string[],
+	dueDate?: string,
+	organizations?: string[],
 ): any {
 	const body: any = {};
 
@@ -212,6 +214,13 @@ function buildTaskRequestBody(
 	if (description) body.description = description;
 	if (tags?.length) body.tags = tags;
 	if (people?.length) body.people = people;
+	if (organizations?.length) body.organizations = organizations;
+
+	if (dueDate) {
+		// Ensure dueDate is in ISO 8601 format
+		const date = new Date(dueDate);
+		body.dueDate = date.toISOString();
+	}
 
 	return body;
 }
@@ -707,6 +716,56 @@ export class RogerRoger implements INodeType {
 	}
 
 	private generateTaskProperties() {
+		const taskFieldOptions = [
+			{
+				displayName: 'Description',
+				name: 'description',
+				type: 'string' as const,
+				typeOptions: { rows: 4 },
+				default: '',
+				placeholder: 'Enter task description',
+				description: 'Description of the task',
+			},
+			{
+				displayName: 'Tags',
+				name: 'tags',
+				type: 'multiOptions' as const,
+				typeOptions: {
+					loadOptionsMethod: 'getTags',
+				},
+				default: [],
+				description: 'Tags associated with this task',
+			},
+			{
+				displayName: 'People',
+				name: 'people',
+				type: 'multiOptions' as const,
+				typeOptions: {
+					loadOptionsMethod: 'getPeople',
+				},
+				default: [],
+				description: 'People associated with this task',
+			},
+			{
+				displayName: 'Organizations',
+				name: 'organizations',
+				type: 'multiOptions' as const,
+				typeOptions: {
+					loadOptionsMethod: 'getOrganizations',
+				},
+				default: [],
+				description: 'Organizations associated with this task',
+			},
+			{
+				displayName: 'Due Date',
+				name: 'dueDate',
+				type: 'dateTime' as const,
+				default: '',
+				placeholder: 'Select a due date',
+				description: 'Due date for the task',
+			},
+		];
+
 		return [
 			{
 				displayName: 'Title',
@@ -772,37 +831,7 @@ export class RogerRoger implements INodeType {
 						operation: [OPERATIONS.CREATE],
 					},
 				},
-				options: [
-					{
-						displayName: 'Description',
-						name: 'description',
-						type: 'string' as const,
-						typeOptions: { rows: 4 },
-						default: '',
-						placeholder: 'Enter task description',
-						description: 'Description of the task',
-					},
-					{
-						displayName: 'Tags',
-						name: 'tags',
-						type: 'multiOptions' as const,
-						typeOptions: {
-							loadOptionsMethod: 'getTags',
-						},
-						default: [],
-						description: 'Tags associated with this task',
-					},
-					{
-						displayName: 'People',
-						name: 'people',
-						type: 'multiOptions' as const,
-						typeOptions: {
-							loadOptionsMethod: 'getPeople',
-						},
-						default: [],
-						description: 'People associated with this task',
-					},
-				],
+				options: taskFieldOptions,
 			},
 			{
 				displayName: 'Update Fields',
@@ -863,6 +892,7 @@ export class RogerRoger implements INodeType {
 							},
 						],
 					},
+					...taskFieldOptions,
 				],
 			},
 		];
@@ -1512,7 +1542,7 @@ export class RogerRoger implements INodeType {
 			updateFields.tags,
 			updateFields.segments,
 			updateFields.people,
-			updateFields.address?.addressDetails
+			updateFields.address?.addressDetails,
 		);
 	}
 
@@ -1524,6 +1554,8 @@ export class RogerRoger implements INodeType {
 			description?: string;
 			tags?: string[];
 			people?: string[];
+			dueDate?: string;
+			organizations?: string[];
 		};
 
 		return buildTaskRequestBody(
@@ -1532,7 +1564,9 @@ export class RogerRoger implements INodeType {
 			column,
 			additionalFields.description,
 			additionalFields.tags,
-			additionalFields.people
+			additionalFields.people,
+			additionalFields.dueDate,
+			additionalFields.organizations
 		);
 	}
 
@@ -1548,6 +1582,8 @@ export class RogerRoger implements INodeType {
 			description?: string;
 			tags?: string[];
 			people?: string[];
+			dueDate?: string;
+			organizations?: string[];
 		};
 
 		const { workspace, column } = updateFields.taskStatus?.statusDetails || {};
@@ -1558,7 +1594,9 @@ export class RogerRoger implements INodeType {
 			column,
 			updateFields.description,
 			updateFields.tags,
-			updateFields.people
+			updateFields.people,
+			updateFields.dueDate,
+			updateFields.organizations
 		);
 	}
 }
