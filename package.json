@@ -11,6 +11,10 @@
     "name": "RogerRoger",
     "email": "info@rogerroger.io"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RogerRogerHQ/n8n-nodes-rogerroger.git"
+  },
   "engines": {
     "node": ">=20.15"
   },
