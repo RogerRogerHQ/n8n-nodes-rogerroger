@@ -2,6 +2,8 @@
 
 This is an n8n community node. It lets you use RogerRoger in your n8n workflows.
 
+RogerRoger is a collaborative task and communication platform designed to streamline workflows by turning emails and chats into actionable tasks for teams.
+
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
 [Installation](#installation)  
@@ -78,3 +80,4 @@ Tested against n8n version 1.95.3.
 	- Updated README
 	- Moved repository to public Github
 	- Text changes to improve consistancy between RogerRoger and N8N
+	- Add fields "dueDate" and "organizations" to task resource
