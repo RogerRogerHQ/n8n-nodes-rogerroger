@@ -1,6 +1,6 @@
 {
   "name": "@rogerrogerio/n8n-nodes-rogerroger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Interact with RogerRoger API for Person, Organization and Task resources",
   "keywords": [
     "n8n-community-node-package"
@@ -36,7 +36,7 @@
       "dist/credentials/RogerRogerApi.credentials"
     ],
     "nodes": [
-      "dist/RogerRoger.node.js"
+      "dist/nodes/RogerRoger/RogerRoger.node.js"
     ]
   },
   "devDependencies": {

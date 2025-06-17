@@ -81,3 +81,5 @@ Tested against n8n version 1.95.3.
 	- Moved repository to public Github
 	- Text changes to improve consistancy between RogerRoger and N8N
 	- Add fields "dueDate" and "organizations" to task resource
+- 1.0.3:
+	- Wrong path specified for node in package.json
