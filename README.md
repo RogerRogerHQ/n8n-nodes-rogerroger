@@ -49,11 +49,21 @@ Tested against n8n version 1.95.3.
 
 ## Usage
 
-1. Create a new person, organization, or task on RogerRoger.
-2. Create a new workflow in n8n.
-3. Add the RogerRoger node to your workflow.
-4. Enter your API key and select the resource and operation you want to perform.
-5. Execute the node.
+1. **Generate an API Key**: Visit the [RogerRoger API Admin](https://app.rogerroger.io/admin/api) to create your API key.
+
+2. **Set Up Credentials in n8n**:
+   - Navigate to the RogerRoger node in your n8n workflow.
+   - Create a new credential and enter the API key you generated.
+
+3. **Select a Resource**:
+   - Choose one of the available resources you want to interact with: Person, Organization, or Task.
+
+4. **Choose an Operation**:
+   - Select the operation you wish to perform (e.g., Get, Create, Update, Delete).
+   - Provide the necessary data for the selected operation.
+
+5. **Execute the Node**:
+   - Run the node to perform the selected operations on the RogerRoger platform.
 
 ## Resources
 
@@ -63,3 +73,8 @@ Tested against n8n version 1.95.3.
 ## Version history
 
 - 1.0.0: Initial release
+- 1.0.1: README updated
+- 1.0.2:
+	- Updated README
+	- Moved repository to public Github
+	- Text changes to improve consistancy between RogerRoger UI and N8N Node
