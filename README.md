@@ -78,8 +78,10 @@ Tested against n8n version 1.95.3.
 - 1.0.1: README updated
 - 1.0.2:
 	- Updated README
-	- Moved repository to public Github
+	- Chore: Moved repository to public Github
 	- Text changes to improve consistancy between RogerRoger and N8N
 	- Add fields "dueDate" and "organizations" to task resource
 - 1.0.3:
 	- Wrong path specified for node in package.json
+- 1.0.4:
+	- Wrong path to credentials file specified in package.json 
