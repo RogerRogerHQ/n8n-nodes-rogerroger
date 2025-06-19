@@ -93,3 +93,5 @@ Tested against n8n version 1.95.3.
 	- Update test endpoint
 - 1.0.8:
 	- Provide rules for credential test
+- 1.0.9
+	- Bump version
