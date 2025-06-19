@@ -1,6 +1,6 @@
 {
   "name": "@rogerrogerio/n8n-nodes-rogerroger",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "Interact with RogerRoger API for Person, Organization and Task resources",
   "keywords": [
     "n8n-community-node-package"

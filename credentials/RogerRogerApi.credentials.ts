@@ -1,4 +1,6 @@
 import {
+	IAuthenticateGeneric,
+  ICredentialTestRequest,
   ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
@@ -25,4 +27,29 @@ export class RogerRogerApi implements ICredentialType {
       description: 'The base URL for the RogerRoger API',
     },
   ];
+	authenticate: IAuthenticateGeneric = {
+		type: 'generic',
+		properties: {
+			headers: {
+				'X-API-KEY': '={{$credentials.apiKey}}'
+			}
+
+		},
+	};
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: '={{$credentials.apiBaseUrl}}',
+			url: '/people',
+		},
+		rules: [
+			{
+				type: 'responseSuccessBody',
+				properties: {
+					key: 'message',
+					value: 'JWT Token not found',
+					message: 'Invalid or missing API key',
+				},
+			},
+		],
+	};
 }

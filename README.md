@@ -85,3 +85,11 @@ Tested against n8n version 1.95.3.
 	- Wrong path specified for node in package.json
 - 1.0.4:
 	- Wrong path to credentials file specified in package.json 
+- 1.0.5:
+	- Add credential test code
+- 1.0.6:
+	- Fix X-API-KEY header
+- 1.0.7:
+	- Update test endpoint
+- 1.0.8:
+	- Provide rules for credential test
